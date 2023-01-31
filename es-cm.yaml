@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch-config
+  namespace: kube-system
+data:
+  elasticsearch.yml: |
+    cluster.name: es-cluster
+    node.name: ${HOSTNAME}
+    network.host: 0.0.0.0
+    http.port: 9200

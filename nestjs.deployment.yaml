@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: kube-system
+  name: nestjs-k8s
+spec:
+  selector:
+    matchLabels:
+      app: nestjs-k8s
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nestjs-k8s
+    spec:
+      containers:
+        - name: nestjs-k8s
+          image: edwardpm1206/nestjs-k8s
+          ports:
+            - containerPort: 3000
